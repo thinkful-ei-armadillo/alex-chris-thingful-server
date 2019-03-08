@@ -10,7 +10,6 @@ function requireAuth(req, res, next){
     bearerToken = authToken.slice(7, authToken.length);
   }
   const [tokenUsername, tokenPassword] = AuthService.parseBasicToken(bearerToken);
-  console.log(tokenUsername, tokenPassword);
   if(!tokenUsername || !tokenPassword){
     return res.status(401).json({error: 'Unauthorized request'});
   }
